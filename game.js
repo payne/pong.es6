@@ -16,7 +16,7 @@ class Game {
 
   step() {
     console.log('step');
-    //this.clear();
+    this.clear(); // comment this out for line effect
     this.context.fillStyle = 'blue';
     this.context.fillRect(this.x++, this.y++, 10, 10);
     this.x %= 100;

@@ -1,17 +1,26 @@
 class Game {
-  context;
-  width; height;
+  context; width; height; x; y;
 
   constructor(canvas) {
     this.context = canvas.getContext("2d")
     this.width = canvas.width
     this.height = canvas.height
+    this.x = this.y = 0;
     this.clear();
   }
 
   clear() {
-    this.context.fillStyle = '#000'
+    this.context.fillStyle = 'red';
     this.context.fillRect(0, 0, this.width, this.height)
+  }
+
+  step() {
+    console.log('step');
+    //this.clear();
+    this.context.fillStyle = 'blue';
+    this.context.fillRect(this.x++, this.y++, 10, 10);
+    this.x %= 100;
+    this.y %= 100;
   }
 
   start() {
@@ -25,10 +34,6 @@ class Game {
       self.step();
       self.animationStep();
     })
-  }
-
-  step() {
-    console.log('step');
   }
 }
 
